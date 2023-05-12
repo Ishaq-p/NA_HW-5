@@ -3,23 +3,27 @@ import numpy as np
 
 
 def f(x):
-    # return x - np.sin(3.915*x+5.848) + 3.915
-    return x * np.sin(1/x) + 0.06178
+    # return x - np.sin(4.221*x+2.139) + 4.221
+    return x * np.sin(1/x) + 0.06044
 
 def RE_(x1, x0):
     return abs((x1 - x0)/x1)
 
 # def printing(n, a_n, p_n, b_n, sign, RE):
 def printing(n, a_n, p_n, b_n, f_a, f_p):
+
     a_n = round(rnd(a_n, 6)[-1], 10)
     b_n = round(rnd(b_n, 6)[-1], 10)
     p_n = round(rnd(p_n, 6)[-1], 10)
+
     # if sign < 0: sign = '-'
     # else:
     #     sign = '+'
     f_a = rnd(f_a, 6)[-1]
     f_p = rnd(f_p, 6)[-1]
-    # RE = rnd(RE, 9)[-1]        
+
+    # RE = rnd(RE, 9)[-1]   
+          
     # print(n, ":\t||\t" ,a_n,"\t||\t", p_n,"\t||\t", b_n,"\t||\t", sign, "\t||\t", RE)
     print(n, ":\t||\t" ,a_n,"\t||\t", p_n,"\t||\t", b_n,"\t||\t", f_a, "\t||\t", f_p)
 
@@ -32,12 +36,16 @@ def regular_falsi(a, b, epsilon):
     n=1
     p0=a
     p=a
+
     # while RE >= epsilon:
     while abs(f(p)) >= epsilon:
+
         p = xINT(a, b)
         RE = RE_(round(rnd(p, 6)[-1], 10), round(rnd(p0, 6)[-1], 10))
+
         # printing(n, a, p, b, f(a)*f(p), RE)
         printing(n, a, p, b, f(a), f(p))
+
         Hot_Cold = f(a) * f(p)
         if Hot_Cold < 0:
             b = p
@@ -49,5 +57,5 @@ def regular_falsi(a, b, epsilon):
 
     print('Approximation of the root is', round(rnd(p, 6)[-1], 10))
 
-# regular_falsi( -4, -1, 1e-6)
+# regular_falsi( -5, -1, 1e-6)
 regular_falsi( 0.06, 0.09, 1e-5)

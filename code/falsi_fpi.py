@@ -3,10 +3,10 @@ import numpy as np
 
 
 def f(x):
-    return x**2 - 1.89*np.sqrt(x) - 0.15
+    return x**2 - 0.17*np.sqrt(x) - 1.22
 
 def f_(x):
-    return (0.4725 / x**(3/2)) + 2
+    return (0.0425 / x**(3/2)) + 2
 
 def G_b(x):
     return (b*f(x) - x*f(b)) / (f(x) - f(b))
