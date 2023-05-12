@@ -1,3 +1,6 @@
+from rounding import rounding as rnd
+import numpy as np
+
 xx=101
 x=[0,43, 80, 94]
 y=[13.649, 35.606, 70.586, 84.680]
